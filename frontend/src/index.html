@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time - manager</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div id="ui-creator-form" class="hide">
+        <div class="creator-form">
+            <h3>Задача*</h3>
+            <input class="creator-form__field creator-form__title" type="text">
+            <h3>Описание</h3>
+            <textarea class="creator-form__field creator-form__description" name="description" cols="30" rows="10"></textarea>
+            <h3>Дэдлайн</h3>
+            <input class="creator-form__field creator-form__deadline" type="date">
+            <button class="creator-form__submit-button">Создать</button>
+        </div>
+    </div>
+    <header class="body-header">
+        <h1>Time - manager</h1>
+        <nav>
+            <button class="body-header__nav__button__deactive">Создать задачу</button>
+        </nav>
+    </header>
+    <main>
+        <div class="table__container">
+            <div class="table__header">
+                <ul class="table__header__list">
+                    <li></li>
+                    <li><p>Название</p></li>
+                    <li><p>Описание</p></li>
+                    <li><p>Дэдлайн</p></li>
+                    <li><p>Статус</p></li>
+                    <li><p>Действие</p></li>
+                </ul>
+            </div>
+            <div class="table__body"></div>
+        </div>
+    </main>
+    <script type="module" src="index.mjs"></script>
+</body>
+</html>
