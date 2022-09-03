@@ -1,5 +1,5 @@
-import { TaskList } from "./TaskList.mjs";
-import { DomController } from "./DomController.mjs";
+import { TaskList } from "./task-model/TaskList.mjs";
+import { DomController } from "./dom-service/DomController.mjs";
 import { PseudoEmitter } from "./PseudoEmitter.js";
 
 export class App {

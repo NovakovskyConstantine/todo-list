@@ -12,16 +12,11 @@ export class TaskCreatorForm {
         this.deadline = document.getElementsByClassName("creator-form__deadline")[0];
         this.submitButton = document.getElementsByClassName("creator-form__submit-button")[0];
 
-        this.submitButton.addEventListener("click", () => {
-            if (this.checkData()) {
-                this.pseudoEmitter.emit("createTask", this.createTaskData());
-                this.clearCreatorForm();
-            }
-        });
+        this.createEvents();
     }
 
     checkData () {
-        if (this.title.value && this.description.value && this.deadline.value) {
+        if (this.title.value) {
             return true;
         }
         return false;
@@ -39,5 +34,15 @@ export class TaskCreatorForm {
         this.title.value = "";
         this.description.value = "";
         this.deadline.value = null;
+    }
+
+    createEvents() {
+        this.submitButton.addEventListener("click", () => {
+            if (this.checkData()) {
+                this.pseudoEmitter.emit("createTask", this.createTaskData());
+                this.clearCreatorForm();
+            }
+        });
+        this.pseudoEmitter.on("clearForm", this.clearCreatorForm.bind(this));
     }
 }
