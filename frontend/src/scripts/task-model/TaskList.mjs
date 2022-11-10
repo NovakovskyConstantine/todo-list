@@ -11,14 +11,13 @@ export class TaskList {
     }
 
     add(task) {
-        let id = Date.now();
         const taskData = {
-            id,
+            id: task.id,
             title: task.title,
             description: task.description,
             deadline: task.deadline
         }
-        this.tasks[id] = new Task(taskData);
+        this.tasks[taskData.id] = new Task(taskData);
         this.pseudoEmitter.emit("changeDom");
     }
 }

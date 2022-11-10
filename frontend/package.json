@@ -1,19 +1,24 @@
 {
-  "name": "to-do-list",
-  "version": "0.0.1",
-  "description": "Обычный to-do list",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NovakovskyConstantine/todo-list.git"
-  },
-  "author": "Konstantin Novakovskiy",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NovakovskyConstantine/todo-list/issues"
-  },
-  "homepage": "https://github.com/NovakovskyConstantine/todo-list#readme"
+    "name": "to-do-list",
+    "version": "0.0.1",
+    "description": "Обычный to-do list",
+    "main": "src/index.js",
+    "scripts": {
+        "build": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NovakovskyConstantine/todo-list.git"
+    },
+    "author": "Konstantin Novakovskiy",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/NovakovskyConstantine/todo-list/issues"
+    },
+    "homepage": "https://github.com/NovakovskyConstantine/todo-list#readme",
+    "devDependencies": {
+        "html-webpack-plugin": "^5.5.0",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0"
+    }
 }

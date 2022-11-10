@@ -24,6 +24,7 @@ export class TaskCreatorForm {
 
     createTaskData() {
         return {
+            id: Date.now(),
             title: this.title.value,
             description: this.description.value,
             deadline: this.deadline.value
