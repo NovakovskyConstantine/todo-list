@@ -1,6 +1,6 @@
 import { FormsController } from "./FormsController.js";
 import { TaskCreatorForm } from "./TaskCreatorForm.mjs";
-import { TaskListView } from "./TaskListView.js";
+import { TaskListView } from "./TaskListView";
 
 export class DomController {
     taskData;

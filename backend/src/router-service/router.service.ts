@@ -13,6 +13,7 @@ export class RouterService {
         request.on("data", chunk => {
             data += chunk;
             const newData: JSON = JSON.parse(data);
+            console.log("newData", newData)
             this._services[url[0]].useApi(url, newData)
                 .then((resolve: IResponseData) => this._sendResponse(response, resolve))
         });
