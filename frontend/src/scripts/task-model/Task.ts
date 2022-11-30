@@ -1,4 +1,6 @@
-export class Task {
+import { ITask } from "../task-service/task.interface";
+
+export class Task implements ITask {
     id;
     title;
     description;

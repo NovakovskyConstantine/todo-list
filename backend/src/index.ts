@@ -25,7 +25,7 @@ const hostname: string = 'localhost';
 const port: number = 8000;
 
 const requestListener = function (req, res) {
-    console.log(req.url);
+    console.log(req.url)
     routerService.processTheRequest(req, res);
 };
 
