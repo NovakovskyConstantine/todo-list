@@ -1,3 +1,4 @@
+import { Emitter } from "../emitter-service/emitter.service";
 import { TaskUIComponent } from "../ui/task.ui.component";
 
 export class TaskListView {
@@ -5,16 +6,16 @@ export class TaskListView {
     private _tasks: Record<string, TaskUIComponent>;
     private _deleteFunctions: Record<string, Function>;
     container;
-    pseudoEmitter;
+    private _emitter: Emitter;
 
     constructor(taskData, pseudoEmitter) {
         this._tasks = {};
         this._deleteFunctions = {};
         this.taskData = taskData;
-        this.pseudoEmitter = pseudoEmitter;
+        this._emitter = pseudoEmitter;
         this.container = document.getElementsByClassName("table__body")[0];
 
-        this.pseudoEmitter.on("changeDom", this.addAll.bind(this));
+        this._emitter.on("changeDom", this.addAll.bind(this));
     }
 
     addAll() {
@@ -22,14 +23,12 @@ export class TaskListView {
         for (let id in this.taskData) {
             this._tasks[id] = new TaskUIComponent(this.taskData[id]);
             if (!this._deleteFunctions[id]) {
-                this._deleteFunctions[id] = this._completeTask.bind(this, id);
                 this._tasks[id].html.children[0].children[0].children[0].addEventListener("click", () => {
-                    this._deleteFunctions[id]()
+                    this._emitter.emit("deleteTask", id);
                 });
             }
             this.container.appendChild(this._tasks[id].html);
         }
-        console.log(this)
     }
 
     clearAll() {
@@ -40,12 +39,5 @@ export class TaskListView {
             }
             this._tasks = {};
         }
-    }
-
-    private _completeTask(id: string): void {
-        delete this.taskData[id];
-        delete this._tasks[id];
-        
-        this.addAll()
     }
 }

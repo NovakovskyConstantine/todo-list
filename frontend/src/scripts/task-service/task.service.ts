@@ -42,8 +42,10 @@ export class TaskService {
         this._emitter.emit("changeDom");
     }
 
-    public deleteTask(task: ITask): void {
-
+    public deleteTask(id: string): void {
+        delete this._tasksData[id];
+        this._memory.localStorage.setItem("tasksData", JSON.stringify(this._tasksData));
+        this._emitter.emit("changeDom");
     }
 
     public changeStatus(task: ITask, newStatus): void {

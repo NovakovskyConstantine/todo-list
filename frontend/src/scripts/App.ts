@@ -31,7 +31,6 @@ export class App {
         this._emitter = new Emitter();
         this._userService = new UserService(this._emitter);
         this._memory = new MemoryService();
-        console.log(this)
 
         this._taskService = new TaskService({emitter: this._emitter, userService: this._userService, memory: this._memory})
         
