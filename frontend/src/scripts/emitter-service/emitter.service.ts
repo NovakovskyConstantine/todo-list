@@ -8,6 +8,7 @@ export class Emitter {
     }
 
     public emit(emitName, argument = null): void {
+        console.log(this);
         if (!this._allEvents[emitName]) {
             this._allEvents[emitName] = {
                 functions: [],

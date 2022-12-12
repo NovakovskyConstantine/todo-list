@@ -1,5 +1,5 @@
 import { Emitter } from "../emitter-service/emitter.service";
-import { TaskUIComponent } from "../ui/task.ui.component";
+import { TaskUIComponent } from "../ui/tasklist.components/task.ui.component";
 
 export class TaskListView {
     taskData;
@@ -8,11 +8,11 @@ export class TaskListView {
     container;
     private _emitter: Emitter;
 
-    constructor(taskData, pseudoEmitter) {
+    constructor(taskData, emitter) {
         this._tasks = {};
         this._deleteFunctions = {};
         this.taskData = taskData;
-        this._emitter = pseudoEmitter;
+        this._emitter = emitter;
         this.container = document.getElementsByClassName("table__body")[0];
 
         this._emitter.on("changeDom", this.addAll.bind(this));
@@ -35,7 +35,6 @@ export class TaskListView {
         if (this.container.children.length) {
             for (let i = this.container.children.length - 1; i > -1; i--) {
                 this.container.children[i].remove();
-                
             }
             this._tasks = {};
         }
