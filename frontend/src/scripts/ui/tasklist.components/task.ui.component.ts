@@ -1,20 +1,22 @@
-import { ITask } from "../task-service/task.interface";
+import "./task.ui.component.style.css";
 
-export class TaskUIComponent {
+import { ITask } from "../../task-service/task.interface";
+import { UIComponentPrototype } from "../ui.component.prototype";
+
+export class TaskUIComponent extends UIComponentPrototype {
     private _id: string;
     private _title: string;
     private _description: string;
     private _deadline: Date;
-    private _html: HTMLElement;
 
     constructor(task: ITask) {
+        super();
         this._id = task.id;
         this._title = task.title;
         this._description = task.description;
         this._deadline = task.deadline;
-        this._html = document.createElement("div");
-        this._html.classList.add("task");
-        this._html.classList.add(this._id);
+        this.createHtml("div");
+        this.addClasses(["task", this._id]);
         this._init();
     }
 
@@ -29,10 +31,6 @@ export class TaskUIComponent {
         const child = document.createElement("div");
         child.classList.add(className);
         child.innerHTML = `<p>${data}</p>`;
-        this._html.appendChild(child);
-    }
-
-    public get html(): HTMLElement {
-        return this._html;
+        this.html.appendChild(child);
     }
 }
