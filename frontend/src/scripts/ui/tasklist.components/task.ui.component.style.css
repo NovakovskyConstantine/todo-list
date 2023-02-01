@@ -1,9 +1,59 @@
 .task {
     padding: 0;
+    margin-top: 5px;
     display: grid;
-    grid-template-columns: 1fr 3fr 10fr 3fr 2fr 2fr;
+    grid-template-columns: 60px 600px 140px;
+    border: 1px solid #282323;
+    border-radius: 3px;
+    background-color: rgba(114, 114, 114, 0.29);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 500;
+}
+.task:hover {
+    background-color: rgba(114, 114, 114, 0.50);
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.503);
+}
+.task__checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.task__title {
+    font-size: 22px;
+}
+.task__deadline {
+    font-size: 18px;
+}
+.task__title, .task__deadline {
+    display: flex;
+    align-items: center;
 }
 .task > div {
     padding: 5px;
-    border: 1px solid black;
+    height: 50px;
+}
+.task > div > p {
+    margin: 0px;
+}
+.tasklist {
+    width: 900px;
+    height: 100vh;
+}
+.tasklist__header {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black inherit;
+    box-shadow: 1px 0px 2px black;
+}
+.tasklist__table {
+    display: flex;
+    width: 880px;
+    height: calc(100% - 60px);
+    overflow-y: scroll;
+    margin: 0 auto;
+    flex-direction: column;
 }

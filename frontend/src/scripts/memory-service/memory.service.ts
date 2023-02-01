@@ -8,6 +8,8 @@ export class MemoryService {
     constructor() {
         this._localStorage = window.localStorage;
         this._sessionStorage = window.sessionStorage;
+
+        console.log("Запущен MemoryService")
     }
 
     public get localStorage(): Storage {

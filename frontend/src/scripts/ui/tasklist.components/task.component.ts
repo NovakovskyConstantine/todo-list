@@ -21,16 +21,24 @@ export class TaskUIComponent extends UIComponentPrototype {
     }
 
     private _init(): void {
-        this._addChild("task__checkbox", `<input type="checkbox">`);
-        this._addChild("task__title", this._title);
-        this._addChild("task__description", this._description);
-        this._addChild("task__deadline", this._deadline);
+        this._addCheckbox("task__checkbox");
+        this._addText("task__title", this._title);
+        this._addText("task__deadline", this._deadline);
     }
 
-    private _addChild(className: string, data: string | Date) {
+    private _addText(className: string, data: string | Date) {
         const child = document.createElement("div");
         child.classList.add(className);
         child.innerHTML = `<p>${data}</p>`;
+        this.html.appendChild(child);
+    }
+
+    private _addCheckbox(className: string): void {
+        const checkbox = document.createElement("input");
+        const child = document.createElement("div");
+        checkbox.setAttribute("type", "checkbox");
+        child.classList.add(className);
+        child.appendChild(checkbox);
         this.html.appendChild(child);
     }
 }

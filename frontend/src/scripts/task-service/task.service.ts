@@ -17,10 +17,11 @@ export class TaskService {
         
         this._emitter.on("createTask", this.addTask.bind(this));
         this._emitter.on("deleteTask", this.deleteTask.bind(this));
+        this._emitter.on("domReady", this._startService.bind(this));
         this._tasksData = {};
     }
 
-    public startService(): void {
+    private _startService(): void {
         if (this._userService.isAuthorized) {
 
         } else {
