@@ -7,7 +7,6 @@ export class FormsController {
     constructor(pseudoEmitter) {
         this.pseudoEmitter = pseudoEmitter;
         this.uiCreatorForm = document.getElementById("ui-creator-form");
-        this.formCreatorButton = document.getElementsByClassName("body-header__nav__button__deactive")[0];
         this.state = "hide";
 
         this.createEvents();
@@ -20,9 +19,9 @@ export class FormsController {
     }
 
     createEvents() {
-        this.formCreatorButton.addEventListener("click", () => {
+        this.pseudoEmitter.on("forms-controller-change-state", () => {
             this.changeState();
-        });
+        })
         this.uiCreatorForm.addEventListener("click", (event) => {
             if (event.target == this.uiCreatorForm) {
                 this.changeState();

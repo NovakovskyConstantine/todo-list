@@ -18,6 +18,10 @@ module.exports = {
     module: {
         rules:[
             {
+                test: /\.png/,
+                type: 'asset/resource'
+            },
+            {
                 test: /\.tsx?$/,
                 use: [
                     { loader: "ts-loader" },
@@ -36,11 +40,7 @@ module.exports = {
                     { loader: "babel-loader" },
                 ]
             },
-            {
-                test: /\.(png|jpe?g|gif)$/i,
-                use: [{ loader: 'file-loader' },
-                ],
-            },
+            
         ]
     },
     plugins: [
